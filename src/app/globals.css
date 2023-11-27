@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-weight: 600;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(49, 49, 49);
+  color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 1.5rem;
+}
+
+.dropdown-content a {
+  float: none;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  width: fit-content;
+}
+
+.dropdown-content a:hover {
+  color: #e1c200;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+a.underline-hover-effect {
+  text-decoration: none;
+  color: inherit;
+}
+
+.underline-hover-effect {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  position: relative;
+}
+
+.underline-hover-effect::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #e1c200;
+  transition: width 0.25s ease-out;
+}
+
+.underline-hover-effect:hover::before {
+  width: 100%;
+}
+
+.dropbtn :hover {
+  color: #e1c200;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 2px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.react-icon :hover {
+  color: #e1c200;
+}
+
+.image-div {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.slide-right {
+  position: absolute;
+  animation: 1.5s slide-right;
+  object-fit: cover;
+  height: 100%;
+  transition: 1.5s ease-in-out;
+  filter: brightness(0.8);
+}
+
+.image-background {
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  filter: brightness(0.8);
+}
+
+@keyframes slide-right {
+  0% {
+    margin-left: -100%;
+    transform: scale(1.4);
+  }
+
+  40% {
+    margin-left: 0%;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.custom-btn {
+  background-color: white;
+  border: none;
+  z-index: 1;
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 1rem 1.5rem;
+  color: #000000;
+  border-radius: 2rem;
+  overflow: hidden;
+  animation: 1.5s slide-right;
+}
+
+.custom-btn:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 2rem;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-btn:hover {
+  color: white;
+}
+
+.custom-btn:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+
+.custom-btn:active {
+  bottom: 0px;
+}
+
+.marquee {
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    margin-left: 0%;
+  }
+
+  100% {
+    margin-left: -80%;
+  }
+}
+
+.show-md {
+  display: none;
+}
+
+/* media query */
+@media (max-width: 1080px) and (min-width: 750px) {
+  .hide-md {
+    display: none;
+  }
+
+  .brave-logo {
+    width: 150px;
+  }
+  
+  .show-md {
+    display: block;
+  }
+}
+
+/* media query */
+@media (max-width: 750px){
+  .hide-md, .hide-sm {
+    display: none;
+  }
+
+  .brave-logo {
+    width: 100px;
+  }
+
+  .show-md {
+    display: block;
+  }
+
+  .card-name{
+    font-size: 2rem;
+  }
+
+  .custom-btn{
+    margin-top: 1rem;
+  }
+  .marquee {
+    animation: marquee 15s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      margin-left: 0%;
+    }
+  
+    100% {
+      margin-left: -2000px;
+    }
+  }
+}
